@@ -38,7 +38,7 @@ public class Boletoctrl {
 		   String asientos = data.getAsientos();
 		   
 		   try{
-			      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("valotheme" );
+			      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("com.vaadin.tests.themes.valo_ticketysystem01_war_0.0.1-SNAPSHOTPU" );
 			      EntityManager entitymanager = emfactory.createEntityManager( );
 			      entitymanager.getTransaction( ).begin( );				      
 			      
