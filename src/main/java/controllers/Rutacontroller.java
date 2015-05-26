@@ -50,7 +50,7 @@ public class Rutacontroller {
 		        
 		       Query us = null;
 		         if( id_cooperativa > 0 ){
-			        us= s.createQuery("Select u FROM Ruta u JOIN u.cooperativa c WHERE c.id = :id_cooperativa");		        
+			        us= s.createQuery("Select u FROM Ruta u JOIN Cooperativa c WHERE c.id = :id_cooperativa");		        
 			        us.setParameter("id_cooperativa", id_cooperativa);		        	
 		        }else{
 			        us= s.createQuery("Select u FROM Ruta u");		        	

@@ -25,6 +25,8 @@ public class Loginctrl {
     
 	   
 	   public ArrayList<Cliente> identificar(int id_cooperativa, String username, String password){
+               System.out.println("hola... ");
+               
 		    ArrayList<Cliente> data = new ArrayList<Cliente>();
 		    EntityManager s = getSession();
 		    EntityTransaction tx = null;
@@ -40,7 +42,7 @@ public class Loginctrl {
 		        System.out.println(username);
 		        System.out.println(password);
 		        if( id_cooperativa > 0 ){
-			        us= s.createQuery("Select c FROM Cliente c JOIN c.cooperativa co WHERE co.id = :id_cooperativa AND c.nickname = :username AND c.clave = :password");		        	
+			        us= s.createQuery("Select c FROM Cliente c JOIN Cooperativa co WHERE co.id = :id_cooperativa AND c.nickname = :username AND c.clave = :password");		        	
 //			        us= s.createQuery("Select c FROM Cliente c WHERE c.idCooperativa = :id_cooperativa AND c.nickname = :username AND c.clave = :password");		        
 			        us.setParameter("id_cooperativa", id_cooperativa);	
 			        us.setParameter("username", username);	

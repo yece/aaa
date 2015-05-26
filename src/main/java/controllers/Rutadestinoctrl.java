@@ -57,8 +57,8 @@ public class Rutadestinoctrl {
 			        us= s.createQuery(
 			        			"SELECT rd "
 			        			+ "FROM Rutadestino rd "
-			        			+ "JOIN rd.ruta r "
-			        			+ "JOIN r.cooperativa c "
+			        			+ "JOIN Ruta r "
+			        			+ "JOIN Cooperativa c "
 			        			+ "WHERE c.id = :id_cooperativa"
 			        		);
 			        us.setParameter("id_cooperativa", id_cooperativa);		        	
@@ -66,8 +66,8 @@ public class Rutadestinoctrl {
 			        us= s.createQuery(
 		        			"SELECT rd "
 		        			+ "FROM Rutadestino rd "
-		        			+ "JOIN rd.ruta r "
-		        			+ "JOIN r.cooperativa c "
+		        			+ "JOIN Ruta r "
+		        			+ "JOIN Cooperativa c "
 		        		);
 		        }
 

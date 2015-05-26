@@ -53,10 +53,10 @@ public class Busctrl {
 		        
 		       Query us = null;
 		         if( id_cooperativa > 0 ){
-			        us= s.createQuery("Select b FROM Bus b JOIN b.cooperativa c WHERE c.id =:id_cooperativa");		        
+			        us= s.createQuery("Select b FROM Bus b JOIN Cooperativa c WHERE c.id =:id_cooperativa");		        
 			        us.setParameter("id_cooperativa", id_cooperativa);		        	
 		        }else{
-			        us= s.createQuery("Select b FROM Bus b JOIN b.cooperativa c");
+			        us= s.createQuery("Select b FROM Bus b JOIN Cooperativa c");
 		        }
 
 		  		//coopdata = (ArrayList<Cooperativa>) us.getResultList(); 
