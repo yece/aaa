@@ -23,7 +23,7 @@ public class Rutadestinoctrl {
     }	
     
 	   public void crearRutadestino( Rutadestino data ){
-		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("com.vaadin.tests.themes.valo_ticketysystem01_war_0.0.1-SNAPSHOTPU" );
+		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ticketysystem01" );
 		      EntityManager entitymanager = emfactory.createEntityManager( );
 		      entitymanager.getTransaction( ).begin( );
 

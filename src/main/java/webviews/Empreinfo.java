@@ -15,57 +15,26 @@
  */
 package webviews;
 
-import java.io.UnsupportedEncodingException;
-import java.rmi.server.ObjID;
 import java.util.ArrayList;
-import java.util.Enumeration;
-
-import javax.security.auth.Refreshable;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import model.Cliente;
 import model.Cooperativa;
-import model.Tiposusuario;
-import views.Cooperativaview;
 import views.Modalview;
 import views.Rutaview;
 import views.Tablesview;
-
-import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.data.Container;
-import com.vaadin.data.Item;
-import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.event.Action;
 import com.vaadin.event.Action.Handler;
-import com.vaadin.event.dd.DragAndDropEvent;
-import com.vaadin.event.dd.DropHandler;
-import com.vaadin.event.dd.acceptcriteria.AcceptAll;
-import com.vaadin.event.dd.acceptcriteria.AcceptCriterion;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Page;
 import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
-import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
-import com.vaadin.server.VaadinSession;
-import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.DateField;
-import com.vaadin.ui.Embedded;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Image;
@@ -99,8 +68,6 @@ public class Empreinfo extends VerticalLayout implements View {
     	/*VaadinSession.getCurrent().getSession();*/
         //Integer clientId = (Integer)UI.getCurrent().getSession().getAttribute("id");     
         Integer clientId = (Integer)VaadinService.getCurrentRequest().getWrappedSession().getAttribute("id");
-        System.out.println("NUEVO ID CLIENT-NN: "+clientId);
-    	System.out.println(" HOLA ..........  111 ");
         setMargin(true);
         setSpacing(true);
                 
@@ -109,7 +76,7 @@ public class Empreinfo extends VerticalLayout implements View {
         Coop objCoop = new Coop();
         coopdata = objCoop.getAll(empreid);           
         
-        CssLayout head = new CssLayout();    
+        CssLayout head = new CssLayout();
         head.addStyleName("wrapping");        
         Resource res = new ThemeResource("../tests-valo/img/logoT.png");
         // Display the image without caption
@@ -189,6 +156,9 @@ public class Empreinfo extends VerticalLayout implements View {
 	   	        sp2.setSecondComponent( panelvision );
 	   	        addComponent(sp2);            
            }    	   
+       }else{
+           Label msgLabel = new Label("No hay rutas para la empresa seleccionada");
+           addComponent(msgLabel);
        }
     }
     
@@ -246,7 +216,7 @@ public class Empreinfo extends VerticalLayout implements View {
                     Integer clientId = (Integer)VaadinService.getCurrentRequest().getWrappedSession().getAttribute("id");
                     System.out.println("NUEVO ID CLIENT: "+clientId);                    
                     j++;        	
-        		}
+                }
                 
                  getUI().getPage().open(Page.getCurrent().toString(), "");
                  objLoginctrl.getSessionVars();

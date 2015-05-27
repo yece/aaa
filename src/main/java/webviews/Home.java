@@ -64,13 +64,14 @@ public class Home extends VerticalLayout implements View {
         row.setSpacing(true);
         addComponent(row);
         
-        ArrayList<Cooperativa> coopdata = new ArrayList<Cooperativa>();
+        ArrayList<Cooperativa> coopdata1 = new ArrayList<Cooperativa>();
         Coop objCoop = new Coop();
-        coopdata = objCoop.getAll(0);        
-        
+        coopdata1 = objCoop.getAll(0);
+//        
         Panel panel = new Panel( "HOLA" );
         int j = 0;
-        for (Cooperativa cooperativa : coopdata) {        	
+        
+        for (Cooperativa cooperativa : coopdata1) {        	
             panel = new Panel( cooperativa.getRazonSocial() );
             panel.setIcon(FontAwesome.PAGELINES);
             panel.setWidth("300px");

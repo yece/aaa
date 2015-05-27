@@ -22,7 +22,6 @@ import com.vaadin.data.Item;
 import com.vaadin.data.util.HierarchicalContainer;
 import com.vaadin.data.util.IndexedContainer;
 import webviews.StringGenerator;
-import webviews.TestIcon;
 import controllers.Rutacontroller;
 
 public class Rutaview {
@@ -32,7 +31,7 @@ public class Rutaview {
 	public static String CAPTION_EMPRESA = "Empresa";    
 
     public Container generateContainer( int id_cooperativa, final boolean hierarchical) {
-        final TestIcon testIcon = new TestIcon(90);
+                System.out.println("... AQUI ANTES DE INGRESAR A LA LISTA DE RUTAS: " + id_cooperativa);
         final IndexedContainer container = hierarchical ? new HierarchicalContainer()
                 : new IndexedContainer();
         final StringGenerator sg = new StringGenerator();
@@ -44,9 +43,10 @@ public class Rutaview {
         Rutacontroller objRutacontroller = new Rutacontroller();
         coopdata = objRutacontroller.getAll(id_cooperativa);
         
+        System.out.println("... EL ID DE LA COOPERATIVA ES: " + id_cooperativa);
+        
         int j = 0;
 
-        /*System.out.println("HOLA: "+coopdata.get(0).getNombreComercial());*/
         for (Ruta cooperativa : coopdata) {
             final Item item = container.addItem(j);            
             item.getItemProperty(CAPTION_PROPERTY).setValue( cooperativa.getNombre() );

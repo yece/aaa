@@ -14,6 +14,7 @@ import org.eclipse.persistence.internal.queries.ArrayListContainerPolicy;
 import model.Cooperativa;
 
 import java.util.Hashtable;
+import java.util.List;
 
 public class Coop {
 
@@ -30,13 +31,20 @@ public class Coop {
 		        tx.begin();
 		        Query us = null;
 		        if(coopid > 0){
-			        us= s.createQuery("Select u from Cooperativa u WHERE u.id = :coopid");
-			        us.setParameter("coopid", coopid);		        	
+			        us= s.createQuery("SELECT c FROM Cooperativa c WHERE c.id = :id");
+			        us.setParameter("id", coopid);		        	
 		        }else{
-			        us= s.createQuery("Select u from Cooperativa u ");
+			        us= s.createQuery("SELECT c FROM Cooperativa c");
 		        }
 
-		  		coopdata =new ArrayList<Cooperativa> (us.getResultList());
+		  		coopdata = new ArrayList<Cooperativa> (us.getResultList());
+
+                                List<Cooperativa> personList = us.getResultList();
+                                
+                                    for (Cooperativa p : personList) {
+                                        System.out.println(p.toString());
+                                    }
+                                    
 		  		tx.commit();
 		    } catch (Exception e) {
 		        System.out.println(e);
@@ -45,13 +53,13 @@ public class Coop {
 		        s.close();
 		    }
 		    
-		    /*System.out.println("HOLA: "+coopdata.get(0).getNombreComercial());*/
+//		    System.out.println("HOLA: "+coopdata.get(0).getNombreComercial());
 		    return coopdata;		    
 	   }
 		   
 	   
 	   public void crearCooperativa( Hashtable coop_data ){
-		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("com.vaadin.tests.themes.valo_ticketysystem01_war_0.0.1-SNAPSHOTPU" );
+		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ticketysystem01" );
 		      EntityManager entitymanager = emfactory.createEntityManager( );
 		      entitymanager.getTransaction( ).begin( );
 

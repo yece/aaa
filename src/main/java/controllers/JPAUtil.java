@@ -19,7 +19,7 @@ public class JPAUtil {
     static {
         try {
            
-        	sessionFactory = Persistence.createEntityManagerFactory("com.vaadin.tests.themes.valo_ticketysystem01_war_0.0.1-SNAPSHOTPU");
+        	sessionFactory = Persistence.createEntityManagerFactory("ticketysystem01");
         	
         } catch (Throwable ex) {
             

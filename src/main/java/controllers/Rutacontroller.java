@@ -50,7 +50,7 @@ public class Rutacontroller {
 		        
 		       Query us = null;
 		         if( id_cooperativa > 0 ){
-			        us= s.createQuery("Select u FROM Ruta u JOIN Cooperativa c WHERE c.id = :id_cooperativa");		        
+			        us= s.createQuery("Select u FROM Ruta u JOIN cooperativaId c WHERE c.id = :id_cooperativa");		        
 			        us.setParameter("id_cooperativa", id_cooperativa);		        	
 		        }else{
 			        us= s.createQuery("Select u FROM Ruta u");		        	
@@ -71,7 +71,7 @@ public class Rutacontroller {
 		   
 	   
 	   public void crearRuta( Ruta objRuta ){
-		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("com.vaadin.tests.themes.valo_ticketysystem01_war_0.0.1-SNAPSHOTPU" );
+		      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ticketysystem01" );
 		      EntityManager entitymanager = emfactory.createEntityManager( );
 		      entitymanager.getTransaction( ).begin( );
 
